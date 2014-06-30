@@ -2,10 +2,12 @@ var express = require("express"),
     app = express(),
     port = parseInt(process.env.PORT, 10) || 8080;
 
-//app.use(express.methodOverride());
-//app.use(express.bodyParser());
+var bodyParser     = require('body-parser');
+var methodOverride = require('method-override');
+app.use(bodyParser.urlencoded());
+app.use(methodOverride());
 app.use(express.static(__dirname + '/app'));
-//app.use(app.router);
+
 console.log(__dirname);
 var recipes_map = {
     '1': {
